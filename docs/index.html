@@ -87,6 +87,7 @@
       @media (max-width: 960px){
         .hero-grid{grid-template-columns:1fr}
       }
+      .hero-side{display:flex;flex-direction:column;gap:12px;height:100%}
       .card{
         background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
         border:1px solid var(--line);
@@ -212,6 +213,23 @@
       @media (max-width: 960px){
         .split{grid-template-columns:1fr}
       }
+      .image-card{
+        padding: 12px;
+        overflow: hidden;
+      }
+      .image-card img{
+        width:100%;
+        display:block;
+        border-radius: 14px;
+        box-shadow: 0 10px 28px rgba(0,0,0,.36);
+        object-fit: cover;
+      }
+      .image-caption{
+        margin-top:10px;
+        color:var(--muted);
+        font-size:13px;
+        line-height:1.45;
+      }
       .footer{
         margin-top: 38px;
         padding: 26px 0 42px;
@@ -222,6 +240,13 @@
       .smalllinks{display:flex;gap:12px;flex-wrap:wrap}
       .smalllinks a{color:var(--muted)}
       .smalllinks a:hover{color:var(--text)}
+      .avatar{
+        width:40px;
+        height:40px;
+        border-radius:12px;
+        border:1px solid var(--line);
+        object-fit:cover;
+      }
     </style>
   </head>
   <body>
@@ -287,30 +312,39 @@
             </div>
           </div>
 
-          <aside class="card mini">
-            <h3>Built for automation flows</h3>
-            <p>
-              Use it to move content safely across steps: PR body, timeline comment, job summary, or action inputs.
-            </p>
-            <ul>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Read from <b>path</b> or <b>text</b></span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1v22M1 12h22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/><path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                <span>Multiline export (Markdown/JSON friendly)</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 3 6.5V12c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6.5L12 2Z" stroke="currentColor" stroke-width="2"/></svg>
-                <span>Designed to avoid “content leaks” by default</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h12M4 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                <span>Optional truncation for predictable limits</span>
-              </li>
-            </ul>
-          </aside>
+          <div class="hero-side">
+            <aside class="card mini">
+              <h3>Built for automation flows</h3>
+              <p>
+                Move content safely across steps: PR bodies, timeline comments, job summaries, or action inputs.
+              </p>
+              <ul>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Read from <b>path</b> or <b>text</b></span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1v22M1 12h22" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/><path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span>Multiline export (Markdown/JSON ready)</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 3 6.5V12c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6.5L12 2Z" stroke="currentColor" stroke-width="2"/></svg>
+                  <span>Designed to avoid content leaks by default</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h12M4 17h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span>Optional truncation for predictable limits</span>
+                </li>
+              </ul>
+            </aside>
+
+            <figure class="card image-card">
+              <img src="../assets/ops-literal-splash-large.png" alt="Workflow summary showing ops-literal exporting a report as a reusable output." />
+              <figcaption class="image-caption">
+                Preview of a GitHub Actions run that publishes a sanitized report with <strong>ops-literal</strong>.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -340,6 +374,13 @@
             <p>Generate <b>sha256</b> for traceability and signatures without posting the full content.</p>
           </div>
         </div>
+
+        <figure class="card image-card" style="margin-top:16px">
+          <img src="../assets/ops-literal-whatisit-large.png" alt="Illustration of what ops-literal exports as GitHub Actions outputs." />
+          <figcaption class="image-caption">
+            Visual reference of the literal outputs: file content, basename-only exports, and sha256 hashes ready for reuse in workflows.
+          </figcaption>
+        </figure>
 
         <div class="split">
           <div class="codecard">
@@ -405,9 +446,13 @@
 
       <footer class="footer">
         <div class="row">
-          <div>
-            <div style="font-weight:800;color:var(--text)">Malnati/ops-literal</div>
-            <div style="margin-top:6px">© <span id="y"></span> • GitHub Action landing page</div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <img class="avatar" src="../assets/ops-literal-avatar-original.png" alt="ops-literal avatar" />
+            <div>
+              <div style="font-weight:800;color:var(--text)">Malnati/ops-literal</div>
+              <div style="margin-top:6px">© <span id="y"></span> • GitHub Action landing page</div>
+              <div style="margin-top:6px">Maintained by Malnati</div>
+            </div>
           </div>
           <div class="smalllinks" aria-label="Footer links">
             <a href="https://github.com/Malnati/ops-literal" target="_blank" rel="noreferrer">Repository</a>
