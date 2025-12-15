@@ -153,5 +153,3 @@ This action standardizes the “read → sanitize → optionally truncate → ex
 ### License
 
 MIT. See LICENSE￼.
-
-No repositório `Malnati/ops-literal`, substitua o conteúdo do `README.md` pelo arquivo acima.
