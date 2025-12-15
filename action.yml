@@ -1,6 +1,6 @@
 # Malnati/ops-literal@v1.0.0
 name: "Ops Literal"
-description: "Varredura com idempotência."
+description: "Scan with idempotence."
 author: "Ricardo Malnati"
 
 branding:
@@ -12,30 +12,30 @@ inputs:
     description: "GitHub token."
     required: true
   file_extensions:
-    description: "Regex de extensões."
+    description: "Regex of extensions."
     required: false
     default: "ts|js|jsx|tsx|java|py|go|cs|php|sh|json|yaml|yml"
   target_path:
-    description: "Caminhos de diretórios ou arquivos a serem investigados."
+    description: "Directory paths or files to be investigated."
     required: true
     default: "."
   exclude_patterns:
-    description: "Regex de ignorados."
+    description: "Regex of ignored."
     required: false
     default: "node_modules|dist|build|.git"
 
 outputs:
   json:
-    description: "Caminho do arquivo JSON gerado (array)."
+    description: "Generated JSON file path (array)."
     value: ${{ steps.generate_output.outputs.json }}
   report_path:
-    description: "Caminho do arquivo JSON gerado (array)."
+    description: "Generated JSON file path (array)."
     value: ${{ steps.generate_output.outputs.report_path }}
   status:
-    description: "Status da varredura."
+    description: "Scan status."
     value: ${{ steps.generate_output.outputs.status }}
   count:
-    description: "Quantidade de literais encontrados."
+    description: "Number of literals found."
     value: ${{ steps.generate_output.outputs.count }}
 
 runs:
@@ -58,7 +58,7 @@ runs:
         fi
         for ROOT in $TARGET_PATH; do
           if [ ! -d "$ROOT" ] && [ ! -f "$ROOT" ]; then
-            echo "❌ Caminho inválido em TARGET_PATH: $ROOT"
+            echo "❌ Invalid path in TARGET_PATH: $ROOT"
             exit 1
           fi
         done
