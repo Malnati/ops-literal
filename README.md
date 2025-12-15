@@ -6,9 +6,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Malnati/ops-literal/actions/workflows/ci.yml">
-    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/Malnati/ops-literal/ci.yml?branch=main" />
-  </a>
   <a href="https://github.com/Malnati/ops-literal/releases">
     <img alt="Release" src="https://img.shields.io/github/v/release/Malnati/ops-literal?include_prereleases" />
   </a>
@@ -28,6 +25,12 @@
   <a href="https://github.com/Malnati/ops-literal/issues"><b>Issues</b></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Malnati/ops-literal">
+    <img alt="Ops-literal" src="assets/ops-literal-splash-large.png" />
+  </a>
+</p>
+
 <hr/>
 
 ## What it is
@@ -41,6 +44,12 @@ It is designed for IssueOps / PR automation flows where you need to reuse genera
 - other actions inputs
 
 …without printing full content to logs.
+
+<p align="center">
+  <a href="https://github.com/Malnati/ops-literal">
+    <img alt="Ops-literal" src="assets/ops-literal-whatisit-large.png" />
+  </a>
+</p>
 
 ## Why
 
